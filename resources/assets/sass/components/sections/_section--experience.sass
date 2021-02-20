@@ -1,0 +1,414 @@
+.section--experience
+  position: relative
+  min-height: 100vh
+
+  .section-inner
+    min-height: 150vh
+
+  #exp-particles
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+
+  .section-content
+    z-index: 1
+    position: relative
+    padding-top: 5rem
+    
+    +breakpoint-down(sm)
+      padding-top: 1rem
+
+
+  .section-background--design
+    left: 50%
+    top: 25rem
+    transform: translateX(-50%)
+    // max-width: 42.5rem
+    max-width: 34rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (55 / 17) * 100%
+      background: url(../images/design-bg.png) top left no-repeat
+      background-size: cover
+
+    +breakpoint-down(sm)
+      top: 22rem
+      transition: all 300ms ease-out
+      transform: translateX(-50%) rotate(90deg)
+
+
+  .section-background--triangle2
+    left: 15%
+    top: 65%
+    max-width: 31.3rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (313 / 284) * 100%
+      background: url(../images/triangle2-bg.png) top left no-repeat
+      background-size: cover
+
+  .section-background--parenthesis
+    left: 64%
+    top: 22%
+    max-width: 36.5rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (69 / 73) * 100%
+      background: url(../images/parenthesis.png) top left no-repeat
+      background-size: cover
+
+
+  .skills
+    margin-left: auto
+    margin-right: auto
+    width: 100%
+    max-width: 30rem
+    padding-top: 15rem
+    text-align: center
+    line-height: 2
+    font-size: 1.4rem
+
+    +breakpoint-down(sm)
+      font-size: 1.6rem
+      max-width: 38rem
+
+    small
+      display: block
+      color: $clr-text-faded
+      line-height: 1.5
+      font-size: 85%
+
+    .heading
+      text-transform: uppercase
+      font-size: 3.2rem
+      letter-spacing: 1rem
+      margin-bottom: 3rem
+
+    +breakpoint-down(md)
+      margin-left: 0
+      padding-top: 0
+
+    +breakpoint-down(sm)
+      margin-left: auto
+      margin-right: auto
+      margin-bottom: 16rem
+
+
+  .tools
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+    overflow-x: hidden
+
+    .tool
+      position: absolute
+      transform: scale(.5)
+      pointer-events: none
+      display: none
+
+      +breakpoint-down(md)
+        opacity: .15
+
+    .tool--jquery
+      top: 32%
+      left: 61%
+      +retina-sprite(jquery, tools, true)
+
+    .tool--backbone
+      top: 15%
+      left: 17%
+      +retina-sprite(backbone, tools, true)
+
+    .tool--css3
+      top: 12%
+      left: 68%
+      +retina-sprite(css3, tools, true)
+
+    .tool--html5
+      top: 70%
+      left: 16%
+      +retina-sprite(html5, tools, true)
+
+    .tool--ps
+      top: 78%
+      left: 80%
+      +retina-sprite(ps, tools, true)
+
+    .tool--react
+      top: 48%
+      left: 98%
+      +retina-sprite(react, tools, true)
+
+    .tool--sass
+      top: 33%
+      left: 2%
+      +retina-sprite(sass, tools, true)
+
+    .tool--sketch
+      top: 25%
+      left: 36%
+      +retina-sprite(sketch, tools, true)
+
+    .tool--wp
+      top: 15%
+      left: 95%
+      +retina-sprite(wp, tools, true)
+
+
+
+  .experience
+    text-align: center
+
+    .heading
+      text-transform: uppercase
+      font-size: 3.2rem
+      letter-spacing: 1rem
+      margin-bottom: 0
+
+      span
+        display: inline-block
+        vertical-align: top
+        position: relative
+        z-index: 0
+
+        &:before
+          content: ''
+          z-index: -1
+          position: absolute
+          background: $clr-main
+          top: 1.8rem
+          left: 3rem
+          width: 38rem
+          height: 3.4rem
+          max-width: 0
+          overflow: hidden
+          transition-property: max-width
+          transition-delay: 250ms
+          transition-duration: 500ms
+          transition-timing-function: ease-out
+          transition-timing-function: $ease-out-quint
+
+          +breakpoint-down(md)
+            left: -3rem
+            width: 30rem
+
+        &.visible:before
+          max-width: 38rem
+
+          +breakpoint-down(md)
+            max-width: 30rem
+
+  .experience-tree
+    position: relative
+    padding-top: 6rem
+    padding-bottom: 6rem
+
+  .experience-treeLeaf
+    position: relative
+    margin-top: 2rem
+    margin-bottom: 2rem
+    padding-left: 2rem
+    padding-right: 2rem
+    width: 50%
+    // transform: scale3d(0,1,1)
+    // transform: rotate3d(1,1,1,90deg)
+
+    opacity: 0
+    transition-property: opacity, transform
+    transition-duration: 2000ms
+    transition-timing-function: ease-out
+    transition-timing-function: $ease-out-quint
+
+    &.visible--p
+      // transform: scale3d(1,1,1)
+      // transform: rotate3d(1,1,1,0deg)
+      &:nth-of-type(odd),
+      &:nth-of-type(even)
+        transform: translateX(0)
+        transform: translate3d(0,0,0)
+      opacity: 1
+
+    &:after
+      content: ""
+      border-radius: 10px
+      width: 6px
+      height: 6px
+      position: absolute
+      top: 1.2rem
+      margin-top: -3px
+      margin-left: -1px
+      transform: scale(0)
+      transition: transform 600ms 2100ms ease-out
+      transition: transform 600ms 2100ms $ease-out-back
+
+    &.visible--p:after
+      transform: scale(1)
+
+    &:before
+      position: absolute
+      content: ""
+      top: 1.1rem
+      width: 15%
+      height: 2px
+      border-radius: 10px
+      transform: scale(0,1)
+      transition: transform 600ms 1500ms ease-out
+      transition: transform 600ms 1500ms $ease-out-quint
+
+    &.visible--p:before
+      transform: scale(1,1)
+
+    &:nth-of-type(even)
+      margin-left: 0
+      margin-right: auto
+      transform-origin: right top
+      transform: translateX(100px)
+      transform: translate3d(100px,0,0)
+
+      &:after
+        right: 15%
+
+      &:before
+        right: 0
+        transform-origin: right top
+
+    &:nth-of-type(odd)
+      margin-left: auto
+      margin-right: 0
+      transform-origin: left top
+      transform: translateX(-100px)
+      transform: translate3d(-100px,0,0)
+
+      &:after
+        left: 15%
+
+      &:before
+        left: 0
+        transform-origin: left top
+
+
+    &:nth-of-type(1)
+      &:before,
+      &:after
+        background: #72E1EF
+      .experience-treeLeafDuration
+        color: #72E1EF
+
+    &:nth-of-type(2)
+      &:before,
+      &:after
+        background: #90CAEF
+      .experience-treeLeafDuration
+        color: #90CAEF
+
+    &:nth-of-type(3)
+      &:before,
+      &:after
+        background: #ADB3EE
+      .experience-treeLeafDuration
+        color: #ADB3EE
+
+    &:nth-of-type(4)
+      &:before,
+      &:after
+        background: #CC9EEF
+      .experience-treeLeafDuration
+        color: #CC9EEF
+  
+
+
+  .experience-treeLeafDuration
+    color: $clr-text-faded
+    font-size: 1.1rem
+    text-transform: uppercase
+    font-weight: 500
+    letter-spacing: .5rem
+    margin-bottom: 1rem
+
+    +breakpoint-down(sm)
+      font-size: 1.3rem
+
+  .experience-treeLeafTitle
+    font-size: 1.8rem
+    line-height: 1.5
+    font-weight: 400
+    margin: 0
+
+    +breakpoint-down(sm)
+      font-size: 2rem
+
+  .experience-treeLeafPosition
+    font-size: 1.4rem
+    font-style: italic
+    font-weight: 200
+    letter-spacing: .1rem
+    margin-bottom: 1rem
+
+    +breakpoint-down(sm)
+      font-size: 1.6rem
+
+  .experience-treeLeafDescription
+    font-size: 1.2rem
+    line-height: 1.5
+    font-weight: 300
+
+    +breakpoint-down(sm)
+      font-size: 1.4rem
+
+
+
+  .experience-treeLine
+    position: absolute
+    top: 0
+    left: 50%
+    bottom: 0
+    margin-left: -1px
+    width: 2px
+    height: 100%
+    max-height: 0
+    background: linear-gradient(to bottom, $clr-main, violet)
+    border-radius: 10px
+    transition: max-height 1500ms ease-out
+    transition: max-height 1500ms $ease-out-quint
+
+    &:before
+      position: absolute
+      content: ""
+      width: 10px
+      height: 10px
+      border-radius: 10px
+      margin-left: -5px
+      margin-top: -5px
+      left: 50%
+      top: 100%
+      background: violet
+      transform: scale(0)
+      transition: transform 300ms 1500ms ease-out
+      transition: transform 300ms 1500ms $ease-out-back
+
+  .experience-tree.visible--p .experience-treeLine
+    max-height: 100%
+
+    &:before
+      transform: scale(1)
+
+
+

@@ -1,0 +1,159 @@
+footer.footer--global
+  z-index: 0
+  position: fixed
+  left: 0
+  width: 100%
+  bottom: 0
+  height: 100vh
+  background: linear-gradient(70deg, #31fdff, #53b8ea)
+  display: none
+
+  +shorterThan(480px)
+    position: relative
+    height: auto
+
+
+  .section-inner
+    height: 100%
+    padding-top: 10rem
+    padding-bottom: 0
+
+  .section-content
+    display: flex
+    flex-flow: column nowrap
+    height: 100%
+
+  .footer-copyright
+    font-size: 1.2rem
+    color: rgba(white,.9)
+
+    +breakpoint-down(sm)
+      font-size: 1.4rem
+
+  .contactMe
+    flex: 1 1 auto
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-flow: column nowrap
+    text-align: center
+
+    .letstalk
+      display: inline-block
+      vertical-align: top
+      margin-bottom: 4rem
+      width: 30rem
+      height: 13.1rem
+      +retina-background("../images/letstalk")
+      background-size: cover !important
+      flex: 0 0 13.1rem
+
+    p
+      font-size: 1.8rem
+      line-height: 1.75
+      font-weight: 200
+      margin-bottom: 4rem
+
+    a.link--email
+      display: inline-block
+      vertical-align: top
+      padding: 2rem 5rem
+      color: black
+      font-size: 1.4rem
+      font-weight: 300
+      letter-spacing: .1rem
+      +thin-border($color: rgba(black,.75))
+      border-radius: 100rem
+      backdrop-filter: blur(2px)
+
+      &:after
+        transition-property: all
+        transition-duration: 300ms
+        transition-timing-function: ease-out
+        transition-timing-function: $ease-out-quint
+        border-radius: 100rem
+
+      &:hover
+        background: rgba(black,.95)
+        color: white
+        +thin-border($color: rgba(black,1))
+
+      +shorterThan(480px)
+        margin-bottom: 8rem
+
+    .social
+      margin-top: 2rem
+
+    a.link--social
+      display: inline-block
+      vertical-align: top
+      font-size: 1.4rem
+      padding: 1rem 1.25rem
+      margin: 0 .25rem
+      +thin-border($color: rgba(black,.75))
+      border-radius: 100rem
+
+      &:after
+        transition-property: all
+        transition-duration: 300ms
+        transition-timing-function: ease-out
+        transition-timing-function: $ease-out-quint
+        border-radius: 100rem
+
+      &:hover
+        background: rgba(black,.95)
+        color: white
+        +thin-border($color: rgba(black,1))
+
+  .section-bottom
+    flex: 0 0 auto
+    padding-bottom: 1rem
+
+  .section-pageNumber
+    position: relative
+
+    +breakpoint-down(sm)
+      position: absolute
+      top: 6rem
+      left: 2rem
+      right: 2rem
+      margin: 0
+
+    +shorterThan(480px)
+      position: relative
+      top: 0
+      left: 0
+      right: 0
+      margin-bottom: 6rem
+
+    .section-pageNumberInner
+      background: rgba(black,.05)
+
+
+  #foot-particles
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+    display: none
+
+    +breakpoint-down(sm)
+      display: none
+
+  &.footer-particles--visible
+    display: block
+
+    #foot-particles
+      display: block
+
+
+
+  #footer-particles-detect
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 0
+    height: 0
+    opacity: 0

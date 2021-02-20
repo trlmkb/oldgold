@@ -1,0 +1,153 @@
+%button
+  position: relative
+  display: inline-block
+  vertical-align: middle
+  margin: 0
+  padding: 1rem 3rem
+  border: 0
+  font-weight: 400
+  border-radius: .2rem
+  letter-spacing: .1rem
+  font-size: 1.2rem
+  line-height: 1.8rem
+  font-family: $font-family
+  font-smoothing: antialiased
+  text-transform: uppercase
+  text-align: center
+  text-overflow: ellipsis
+  text-decoration: none
+  white-space: nowrap
+  cursor: pointer
+  user-select: none
+  background: none
+  +button-color($clr-dark)
+  transition-property: background, color, box-shadow
+  transition-timing-function: $ease-in-out-quint
+  transition-duration: 100ms
+
+  &:hover,
+  &:focus
+    text-decoration: none
+    outline: 0
+
+  &.Button--active,
+  &.active,
+  &:active,
+  &:focus
+    outline: 0
+
+  &.Button--disabled,
+  &.disabled,
+  &[disabled]
+    opacity: .45
+    pointer-events: none
+    cursor: not-allowed
+
+
+.Button
+  @extend %button
+
+  &--main
+    +button-color($clr-main)
+
+  &--main-outline
+    +button-color($clr-main, outline)
+
+  &--main-clear
+    +button-color($clr-main, clear)
+
+
+/*------------------------------------//
+//  Sizes
+//------------------------------------*/
+
+
+.Button--tiny
+  +button-size(3px 6px 3px)
+
+  font-size: 1rem
+  line-height: 1.2rem
+  text-transform: none
+  font-weight: 400
+
+.Button--small
+  +button-size(0.6rem 1rem 0.6rem)
+  font-size: 1rem
+  line-height: 1.2rem
+  font-weight: 400
+
+.Button--medium
+  +button-size(10px 20px)
+  font-size: 1.2rem
+  text-transform: uppercase
+  font-weight: 400
+
+.Button--big
+  +button-size(20px 30px)
+  font-size: 1.6rem
+  text-transform: uppercase
+  font-weight: 400
+
+.Button--large
+  +button-size(40px 60px)
+  font-size: 1.6rem
+  text-transform: uppercase
+  font-weight: 400
+
+/*------------------------------------//
+//  Modifiers
+//------------------------------------*/
+
+
+.Button--block
+  display: block
+  width: 100%
+  padding-left: 0
+  padding-right: 0
+  text-align: center
+
+.Button--round
+  border-radius: 1000px
+
+// Buttons stacked
+//
+
+.Buttons--horizontal
+  display: block
+  width: 100%
+
+  .flexbox &
+    display: flex
+    flex-flow: row nowrap
+    align-items: flex-start
+    justify-content: space-between
+
+    .Button
+      flex: 1 1 auto
+
+
+  .no-flexbox &
+    +clearfix
+
+    .Button
+      float: left
+
+.Buttons--justified
+  display: block
+  width: 100%
+
+  .flexbox &
+    display: flex
+    flex-flow: row nowrap
+    align-items: flex-start
+    justify-content: space-between
+
+    .Button
+      flex: 1 1 100%
+
+
+  .no-flexbox &
+    +clearfix
+
+    .Button
+      float: left

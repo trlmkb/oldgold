@@ -1,0 +1,65 @@
+//------------------------------------//
+//  Breakpoints
+//------------------------------------//
+
+=smallerThan($at)
+  @media only screen and (max-width: $at)
+    @content
+
+=between($from, $to)
+  @media only screen and (min-width: $from) and (max-width: $to)
+    @content
+
+=biggerThan($at)
+  @media only screen and (min-width: $at)
+    @content
+
+=shorterThan($at)
+  @media only screen and (max-height: $at)
+    @content
+
+=tallerThan($at)
+  @media only screen and (min-height: $at)
+    @content
+
+
+=breakpoint($from:null, $to:null)
+  @if ($from and ($to == null))
+    @media only screen and (min-width: $from)
+      @content
+
+  @else if ($to and ($from == null))
+    @media only screen and (max-width: $to)
+      @content
+
+  @else if $from and $to
+    @media only screen and (min-width: $from) and (max-width: $to)
+      @content
+
+
+=breakpoint-up($name, $bps: $breakpoints)
+  $min: breakpoint-min($name, $bps)
+  @if $min
+    @media only screen and (min-width: $min)
+      @content
+  @else
+    @content
+  
+=breakpoint-down($name, $bps: $breakpoints)
+  $max: breakpoint-max($name, $bps)
+  @if $max
+    @media only screen and (max-width: $max)
+      @content
+  @else
+    @content
+
+=breakpoint-between($from, $to, $bps: $breakpoints)
+  +media-breakpoint-up($from, $bps)
+    +media-breakpoint-down($to, $bps)
+      @content
+
+
+=media-breakpoint-only($name, $bps: $breakpoints)
+  +media-breakpoint-between($name, $name, $bps)
+    @content
+  

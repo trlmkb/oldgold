@@ -1,0 +1,35 @@
+// Body
+
+html
+  height: 100%
+  overflow-x: hidden
+
+body
+  min-height: 100%
+  +breakpoint-down(sm)
+    overflow-x: hidden
+
+
+body.loading
+  overflow: hidden
+  height: 100vh
+
+// Sticky footer
+
+@if ($sticky-footer)
+  .Page-wrap
+    display: flex
+    flex-flow: column nowrap
+    min-height: 100vh
+
+    .Header--global,
+    .Footer--global
+      flex: 0 0 auto
+
+    .Main--global
+      display: flex
+      flex-flow: column nowrap
+      flex: 1 1 auto
+
+      .Main-inner
+        flex: 1 1 auto

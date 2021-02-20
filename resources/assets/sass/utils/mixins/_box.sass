@@ -1,0 +1,15 @@
+//------------------------------------//
+//  Box
+//------------------------------------//
+
+=box($width: 2.4rem, $height: $width, $line-height: $height)
+  @if $width
+    width: $width
+
+  @if $height
+    height: $height
+
+  @if $line-height
+    line-height: $line-height
+
+  display: inline-block

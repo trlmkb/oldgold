@@ -1,0 +1,17 @@
+/*------------------------------------//
+//  Floats
+//------------------------------------*/
+
+@each $bp in map-keys($breakpoints)
+  +breakpoint-up($bp)
+
+    $bp: breakpoint-infix($bp, $breakpoints)
+
+    .float#{$bp}--left
+      float: left !important
+
+    .float#{$bp}--right
+      float: right !important
+
+    .float#{$bp}--none
+      float: none !important

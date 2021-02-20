@@ -1,0 +1,100 @@
+//
+// Basic Bootstrap table
+//
+
+.table
+  width: 100%
+  max-width: 100%
+  margin-bottom: $spacer
+
+  th,
+  td
+    padding: $spacer/2
+    vertical-align: top
+    border-top: 1px solid $clr-table-border
+  
+
+  thead th
+    vertical-align: bottom
+    border-bottom: 1px solid $clr-table-border
+  
+
+  tbody + tbody
+    border-top: 1px solid $clr-table-border
+  
+
+  
+
+
+
+//
+// Condensed table w/ half padding
+//
+
+.table--small
+  th,
+  td
+    padding: $spacer/4
+  
+
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table--bordered
+  border: 1px solid $clr-table-border
+
+  th,
+  td
+    border: 1px solid $clr-table-border
+  
+
+  thead
+    th,
+    td
+      border-bottom-width: 1px
+    
+  
+
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table--striped
+  tbody tr:nth-of-type(odd)
+    background-color: $clr-light
+  
+
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table--hover
+  tbody tr
+    &:hover
+      background-color: rgba($clr-main,.25)
+    
+  
+// Responsive tables
+//
+// Add `.table--responsive` to `.table`s and we'll make them mobile friendly by
+// enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table--responsive
+  display: block
+  width: 100%
+  overflow-x: auto
+  -ms-overflow-style: -ms-autohiding-scrollbar // See https://github.com/twbs/bootstrap/pull/10057
+
+  // Prevent double border on horizontal scroll due to use of `display: block`
+  &.table--bordered
+    border: 0
+  
+

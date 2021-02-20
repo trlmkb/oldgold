@@ -1,0 +1,685 @@
+// body.has--project-expanded
+  // overflow: hidden
+  // height: 100vh
+
+.section--projects
+  background-image: url(../images/portfolio-shape-bg.png), linear-gradient(to bottom, white 2612px, rgba(#eeeeee,.3) 2612px, rgba(#eeeeee,.3) 100%)
+  background-repeat: no-repeat
+  background-position: center top
+  background-size: auto
+
+  .section-inner
+    // min-height: 500vh
+
+  .section-title
+    margin-bottom: 10rem
+
+  .section-background--portfolio
+    top: 4%
+    left: 2%
+    max-width: 40rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (1709 / 504) * 100%
+      background: url(../images/portfolio-bg.png) top left no-repeat
+      background-size: cover
+
+
+  .projects-title
+    text-align: right
+    position: relative
+    font-size: 4.8rem
+    line-height: 1
+    font-weight: 900
+    color: #161616
+    z-index: 0
+    margin-bottom: 8rem
+    margin-right: 5rem
+
+    &:before
+      content: ""
+      background: $clr-main
+      position: absolute
+      top: 4rem
+      right: -2rem
+      height: 18rem
+      width: 8rem
+      z-index: -1
+
+    > div
+      display: inline-block
+      vertical-align: top
+
+
+  .projects-title--old
+    text-align: left
+    position: relative
+    font-size: 3.8rem
+    line-height: 1
+    font-weight: 900
+    color: #161616
+    z-index: 0
+    margin-bottom: 8rem
+
+    &:before
+      content: ""
+      background: $clr-main
+      position: absolute
+      bottom: -2rem
+      left: 2rem
+      z-index: -1
+      width: 28rem
+      height: 7rem
+      z-index: -1
+
+    > div
+      display: inline-block
+      vertical-align: top
+
+  .project-viewTypes
+    display: inline-block
+    vertical-align: top
+    height: 0
+    position: relative
+    top: -20rem
+
+    +breakpoint-down(sm)
+      top: 0
+      height: auto
+      vertical-align: top
+      margin-bottom: 4rem
+      text-align: center
+      width: 100%
+      display: flex
+      flex-flow: row nowrap
+      align-items: center
+      justify-content: space-around
+
+
+      br
+        display: none
+
+    .project-viewType
+      display: inline-block
+      vertical-align: top
+      font-size: 1.8rem
+      font-weight: 900
+      line-height: 1.5
+      position: relative
+      z-index: 0
+      cursor: pointer
+      margin: .5rem 0
+
+      +breakpoint-down(sm)
+        margin: 0 2rem
+        font-size: 2.4rem
+
+      &:before
+        content: ""
+        position: absolute
+        z-index: -1
+        width: 120%
+        max-width: 0
+        background: $clr-main
+        height: 90%
+        left: -2rem
+        bottom: 0rem
+        transform: skew(-6deg)
+        transition-property: all
+        transition-duration: 300ms
+        transition-timing-function: ease-in-out
+        transition-timing-function: $ease-in-out-quint
+
+      &:hover:before
+        transition-duration: 150ms
+        max-width: 10%
+        transition-timing-function: $ease-in-out-back
+
+      &.project-viewType--active:before
+        max-width: 100%
+
+  .projects--active
+    position: relative
+    display: flex
+    flex-flow: row wrap
+    align-items: flex-start
+    margin: -.5rem 0 10rem
+    transition: all 0.5s cubic-bezier(0,0,0.25,1)
+
+    body[data-projects-view="projects-preview--full"] &
+      margin-left: calc(-50vw + 50%)
+      margin-right: calc(-50vw + 50%)
+
+      +breakpoint-down(md)
+        margin-right: calc(-50vw + 3rem + 50%)
+        margin-left: calc(-50vw - 3rem + 50%)
+
+      +breakpoint-down(sm)
+        margin-left: -2rem
+        margin-right: -2rem
+
+
+    +breakpoint-down(sm)
+      margin-top: 0
+      margin-bottom: 10rem
+
+
+    .project
+      position: relative
+      float: left
+      width: 50%
+
+      +breakpoint-down(sm)
+        float: none
+        width: 100%
+
+
+      body[data-projects-view="projects-preview--full"] &
+        width: 25%
+
+
+        +breakpoint-down(md)
+          float: none
+          width: 50%
+
+
+        +breakpoint-down(sm)
+          float: none
+          width: 100%
+
+
+      .project-preview
+        opacity: 0
+        visibility: hidden
+        // position: fixed
+        display: none
+        position: relative
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        overflow: auto
+        margin: 0 !important
+        height: 100vh
+        width: 100vw
+        background: white
+        background: #f0f0f0
+        transform: scale(.5)
+        transition: all 300ms 150ms linear
+
+      &.project--expanded
+        .project-inner
+          transform: rotateX(-180deg) scale(1.5)
+          transition: all 300ms linear
+          z-index: 1
+          opacity: 0 !important
+
+
+        [data-projects-view="projects-preview--container"] &
+          &:nth-of-type(2n+1)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(50%)
+              transform-origin: right center
+          &:nth-of-type(2n+2)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(-50%)
+              transform-origin: left center
+
+          +breakpoint-down(sm)
+            &:nth-of-type(n)
+              .project-inner
+                transform: rotateX(-180deg) scale(1.5)
+                transform-origin: center center
+
+
+        [data-projects-view="projects-preview--full"] &
+          &:nth-of-type(4n+1)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(100%)
+              transform-origin: center center
+          &:nth-of-type(4n+2)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(50%)
+              transform-origin: right center
+          &:nth-of-type(4n+3)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(-50%)
+              transform-origin: left center
+          &:nth-of-type(4n+4)
+            .project-inner
+              transform: rotateX(-180deg) scale(1.5) translateX(-100%)
+              transform-origin: center center
+
+
+          +breakpoint-down(md)
+            &:nth-of-type(2n+1)
+              .project-inner
+                transform: rotateX(-180deg) scale(1.5) translateX(50%)
+                transform-origin: right center
+            &:nth-of-type(2n+2)
+              .project-inner
+                transform: rotateX(-180deg) scale(1.5) translateX(-50%)
+                transform-origin: left center
+
+          +breakpoint-down(sm)
+            &:nth-of-type(n)
+              .project-inner
+                transform: rotateX(-180deg) scale(1.5)
+                transform-origin: center center
+
+
+
+      &.project--expanded .project-preview
+        position: fixed
+        opacity: 1
+        visibility: visible
+        display: block
+        transform: scale(1) rotateX(0deg)
+        z-index: 99999999
+
+        +breakpoint-down(sm)
+          max-height: 100vh
+
+
+      .project-close
+        z-index: 999
+        position: absolute
+        left: 2rem
+        top: 2rem
+        width: 22px
+        height: 24px
+        cursor: pointer
+        transition: all 0.3s
+        margin: 0
+
+      .project-close > span
+        position: absolute
+        top: 50%
+        display: block
+        width: 100%
+        height: 2px
+        margin-top: -1px
+        background-color: $clr-text
+        border-radius: 3px
+        transition: all 0.3s
+
+
+      .project-close:hover
+        opacity: .45
+
+      .project-close
+        transform: rotate(45deg)
+
+      .project-close > span:nth-of-type(1)
+        transform: rotate(90deg)
+
+
+      .project-content
+        position: relative
+        min-height: 100%
+        opacity: 0
+        visibility: hidden
+        transition-property: opacity, visibility
+        transition-duration: 300ms
+        transition-delay: 0ms
+        transition-timing-function: ease-in-out
+        transition-timing-function: $ease-in-out-quint
+        @extend .container
+
+      &.project--expanded .project-content
+        opacity: 1
+        visibility: visible
+        transition-delay: 300ms
+
+
+      .project-contentInformation
+        padding: 8rem 20rem 6rem
+
+        +breakpoint-down(md)
+          padding-left: 10rem
+          padding-right: 10rem
+
+        +breakpoint-down(sm)
+          padding-left: 4rem
+          padding-right: 4rem
+
+      .project-contentTitle
+        line-height: 1.5
+        color: $clr-text
+
+      .project-contentUrl
+        display: inline-block
+        vertical-align: top
+        padding: 1.25rem 4rem
+        box-shadow: 0 0 0 1px $clr-text
+        font-size: 1.4rem
+        font-weight: 500
+        line-height: 1.25
+        margin-bottom: 2rem
+        letter-spacing: .1em
+        color: $clr-text
+        transition: all 300ms ease-out
+
+        &:hover
+          color: white
+          background: $clr-text
+          box-shadow: 0 0 0 1px $clr-text
+
+
+      .project-contentTechnologies
+        // font-style: italic
+        margin-bottom: 1rem
+        font-weight: 400
+        font-size: 1.4rem
+        color: $clr-text
+
+        +breakpoint-down(md)
+          font-size: 1.6rem
+
+      .project-contentDescription
+        color: $clr-text-faded
+        font-size: 1.2rem
+        line-height: 2
+
+        +breakpoint-down(md)
+          font-size: 1.4rem
+
+      .project-contentImages
+        // position: absolute
+        // top: 0
+        // right: 0
+        // bottom: 0
+        // width: 50%
+        // overflow: auto
+        // display: flex
+        // flex-flow: row nowrap
+        // align-items: center
+
+        // .slick-list
+        //   display: flex
+        //   flex-flow: row nowrap
+        //   align-items: center
+
+        // +breakpoint-down(sm)
+        //   width: 100%
+        //   display: block
+        //   position: relative
+
+        .slick-arrow
+          z-index: 100
+          position: absolute
+          top: 2rem
+          width: 2.4rem
+          height: 2.4rem
+          text-align: center
+          line-height: 2.4rem
+          background: rgba(white,.75)
+          // transform: translateY(-50%)
+          background: none
+          border: 0
+          +text-hide
+          color: #111
+          padding: 0
+          margin: 0
+
+          &:focus
+            outline: 0
+
+          &:before
+            display: inline-block
+            vertical-align: middle
+            font-family: FontAwesome
+            font-size: 2.4rem
+
+        .slick-prev
+          right: 100%
+          margin-right: 2rem
+
+          &:before
+            content: "\f104"
+
+        .slick-next
+          left: 100%
+          margin-left: 1rem
+
+          &:before
+            content: "\f105"
+
+
+
+        img
+          display: block
+          max-width: 100%
+          height: auto
+          margin-left: auto
+          margin-right: auto
+
+
+      .project-inner
+        position: relative
+        margin: 1rem
+        background: #f0f0f0
+        background-size: cover
+        background-position: center top
+        overflow: hidden
+        cursor: pointer
+        // filter: grayscale(1)
+        filter: sepia(50%) grayscale(75%)
+        transition-property: filter, opacity
+        transition-duration: 300ms
+        transition-timing-function: ease-in-out
+        transition-timing-function: $ease-in-out-quint
+
+        &:hover
+          filter: none
+          opacity: 1
+
+          &:after
+            opacity: 1
+          .project-more
+            opacity: 1
+          .project-title
+            opacity: 1
+            transform: translateY(0)
+
+        @at-root .section--projects .projects--active .project--expanded .project-inner
+          filter: none
+
+        body[data-projects-view="projects-preview--full"] &
+          margin: 0
+
+
+        &:before
+          content: ""
+          display: block
+          padding-top: (1050 / 1680) * 100%
+
+          body[data-projects-view="projects-preview--full"] &
+            padding-top: 100%
+
+        &:after
+          content: ""
+          position: absolute
+          z-index: 3
+          top: 50%
+          left: 50%
+          width: 3.6rem
+          height: 3.6rem
+          margin-left: -1.6rem
+          margin-top: -1.6rem
+          border-radius: 5rem
+          border: 2px solid $clr-main
+          border-left-color: rgba($clr-main,0)
+          animation-name: spin
+          animation-duration: 500ms
+          animation-fill-mode: both
+          animation-timing-function: linear
+          animation-iteration-count: infinite
+
+        &.lazyloaded:after
+          display: none
+
+
+      .project-more
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        height: 50%
+        background: scrim-linear-gradient(to bottom, rgba(white,0), rgba(black,.75))
+        opacity: 0
+        transition-property: all
+        transition-duration: 300ms
+        transition-timing-function: ease-in-out
+        transition-timing-function: $ease-in-out-quint
+        .fa
+          z-index: 3
+          bottom: 2.5rem
+          right: 3rem
+          font-weight: 400
+          position: absolute
+          color: white
+          line-height: 1
+          text-shadow: 0 0 3.5rem rgba(black,.85)
+          font-size: 1.4rem
+          transition-property: opacity
+          transition-duration: 100ms, 100ms, 300ms
+          transition-timing-function: ease-in-out
+          transition-timing-function: $ease-in-out-quint
+
+
+      .project-title
+        z-index: 1
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 2rem
+        color: rgba(white,1)
+        font-size: 2rem
+        letter-spacing: .5rem
+        font-weight: 400
+        line-height: 1.5
+        transition-property: all
+        transition-duration: 300ms
+        transition-delay: 0ms
+        transition-timing-function: ease-in-out
+        transition-timing-function: $ease-in-out-quint
+        transform: translateY(100%)
+        opacity: 0
+
+        +breakpoint-down(md)
+          font-size: 1.8rem
+
+        +breakpoint-down(sm)
+          font-size: 1.4rem
+
+
+
+
+  .projects--inactive
+    display: flex
+    flex-flow: row wrap
+    margin: -.5rem 0
+    padding-left: 7.5rem
+    padding-right: 7.5rem
+
+    +breakpoint-down(sm)
+      margin: 0
+
+    .project--inactive
+      flex: 1 1 33.33%
+      flex: 1 1 calc(100% / 3)
+      padding: .5rem
+
+      &:hover
+        img
+          transform: scale(1.15)
+
+      +breakpoint-down(md)
+        flex: 1 1 50%
+
+      +breakpoint-down(sm)
+        flex: 1 1 100%
+        padding: 0
+        margin-bottom: 1rem
+
+
+      .project-inner
+        position: relative
+        overflow: hidden
+
+        &:before
+          z-index: 2
+          content: ""
+          position: absolute
+          bottom: 0
+          left: 0
+          width: 100%
+          height: 50%
+          background: scrim-linear-gradient(to bottom, rgba(white,0), rgba(black,.45))
+
+
+      .project-title
+        z-index: 3
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 1rem 2rem
+        color: rgba(white,.85)
+        font-size: 1.4rem
+        font-weight: 400
+        line-height: 1.5
+
+
+    img
+      position: relative
+      z-index: 1
+      display: block
+      max-width: 100%
+      height: auto
+      transition-property: all
+      transition-duration: 750ms
+      transition-timing-function: ease-out
+      transition-timing-function: $ease-out-quint
+
+
+  .projects-showAll
+    order: 100
+    margin: 2rem 0
+    padding: 2rem 4rem
+    text-transform: uppercase
+    letter-spacing: .1rem
+    font-weight: 300
+    font-size: 1.4rem
+    background: #f0f0f0
+    border-radius: 100rem
+    width: 100%
+    text-align: center
+    cursor: pointer
+    position: relative
+
+    &:before
+      display: inline-block
+      vertical-align: top
+      content: attr(data-text-more)
+
+    display: none
+
+    +breakpoint-down(sm)
+      display: block
+
+      & ~ [class*="project"]
+        display: none
+
+      &.projects-showAll--active
+        &:before
+          content: attr(data-text-less)
+
+        & ~ [class*="project"]
+          display: block

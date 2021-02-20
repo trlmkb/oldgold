@@ -1,0 +1,32 @@
+//
+// Display utilities [Bootstrap]
+//
+
+@each $bp in map-keys($breakpoints)
+  +breakpoint-up($bp)
+
+    $bp: breakpoint-infix($bp, $breakpoints)
+
+    .d#{$bp}--none
+      display: none !important
+    
+    .d#{$bp}--inline
+      display: inline !important
+    
+    .d#{$bp}--inlineBlock
+      display: inline-block !important
+    
+    .d#{$bp}--block
+      display: block !important
+    
+    .d#{$bp}--table
+      display: table !important
+    
+    .d#{$bp}--tableCell
+      display: table-cell !important
+    
+    .d#{$bp}--flex
+      display: flex !important
+    
+    .d#{$bp}--inlineFlex
+      display: inline-flex !important

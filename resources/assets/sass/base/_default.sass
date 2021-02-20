@@ -1,0 +1,47 @@
+
+html
+  box-sizing: border-box
+  // font-size: 62.5%
+  // font-size: 37.5%
+  font-size: 50%
+  line-height: 2.4rem
+  background: $clr-body-background
+
+  +breakpoint($md)
+    font-size: 62.5%
+    // font-size: 50%
+
+  +breakpoint(1681px)
+    // font-size: 62.5%
+
+
+  *,
+  *:before,
+  *:after
+    box-sizing: inherit
+
+
+body
+  background: $clr-body-background
+
+  // preload iamges
+  &:before
+    content: url(../images/zhy-figure.png)
+    display: none
+
+
+a
+  transition-property: all
+  transition-duration: 300ms
+  transition-timing-function: ease-in-out
+  transition-timing-function: $ease-in-out-quint
+
+  &:link,
+  &:visited
+    color: $clr-link
+    text-decoration: none
+
+  &:hover,
+  &:active
+    color: darken($clr-link,15%)
+    text-decoration: none

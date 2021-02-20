@@ -1,0 +1,176 @@
+$navWidth: 32rem
+.nav
+  z-index: 900
+  position: fixed
+  right: -1*$navWidth
+  top: 0
+  bottom: 0
+  width: $navWidth
+  background: rgba(white,.75)
+  -webkit-backdrop-filter: blur(15px) saturate(180%)
+  backdrop-filter: blur(4px) saturate(180%)
+  display: flex
+  flex-flow: column wrap
+  align-items: center
+  justify-content: center
+  transition-property: transform
+  transition-duration: 300ms
+  transition-timing-function: ease-out
+  transition-timing-function: $ease-out-quint
+
+  body.nav--open &
+    transform: translateX(-100%)
+    transform: translate3d(-100%,0,0)
+
+  +breakpoint-down(sm)
+    width: 80%
+    right: -80%
+
+  .nav-link
+    display: block
+    text-align: center
+    font-size: 3.2rem
+    line-height: 1.5
+    padding: 1rem 3rem 1rem 1rem
+    font-weight: 900
+    color: #404040
+    transition-property: color
+    transition-duration: 500ms
+    transition-timing-function: ease-out
+    transition-timing-function: $ease-out-quint
+    animation-duration: 500ms
+    animation-fill-mode: both
+    animation-timing-function: ease-out
+    animation-timing-function: $ease-out-quint
+
+    +breakpoint-down(sm)
+      font-size: 3.4rem
+
+    @for $i from 0 through 4
+      &:nth-of-type(#{$i})
+        animation-delay: 100ms * $i
+
+    body.nav--open &
+      animation-name: flyIn
+
+
+    small
+      position: relative
+      font-size: 50%
+      color: white
+      top: .4rem
+
+    span
+      position: relative
+      display: inline-block
+      vertical-align: top
+      z-index: 0
+
+      &:before
+        content: ""
+        z-index: -1
+        background: $clr-main
+        position: absolute
+        left: -2rem
+        bottom: 0
+        width: 100%
+        height: 50%
+        max-width: 0
+        transition-property: max-width
+        transition-duration: 500ms
+        transition-delay: 300ms
+        transition-timing-function: ease-out
+        transition-timing-function: $ease-out-quint
+
+    &:hover,
+    &:active,
+    &.nav-link--active
+      color: #303030
+      span:before
+        max-width: 100%
+        transition-delay: 0ms
+
+
+.nav-toggle
+  z-index: 999
+  position: fixed
+  right: 3rem
+  top: 2rem
+  width: 22px
+  height: 24px
+  cursor: pointer
+  /* to center */
+  margin: 0
+  transition: all 0.3s
+  animation-duration: 1000ms
+  animation-delay: 300ms
+  animation-fill-mode: both
+  animation-timing-function: ease-out
+  animation-timing-function: $ease-out-quint
+  animation-name: navToggleIn
+
+@keyframes navToggleIn
+  0%
+    // right: 0
+    opacity: 0
+  100%
+    // right: 20px
+    opacity: 1
+
+.nav-toggle > span
+  position: absolute
+  top: 50%
+  display: block
+  width: 100%
+  height: 2px
+  margin-top: -1px
+  background-color: $clr-text
+  border-radius: 3px
+  transition: all 0.3s
+
+.nav-toggle > span:nth-of-type(1)
+  transform: translateY(-5px)
+
+.nav-toggle > span:nth-of-type(2)
+  transform: translateY(5px)
+
+.nav-toggle:hover
+  opacity: .45
+
+/* OPENED */
+
+.nav--open 
+  .nav-toggle
+    transform: rotate(225deg)
+
+  .nav-toggle > span:nth-of-type(1)
+    transform: rotate(90deg)
+
+  .nav-toggle > span:nth-of-type(2)
+    transform: rotate(90deg)
+
+
+.nav-mask
+  position: fixed
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 899
+  display: none
+
+  body.nav--open &
+    display: block
+
+
+
+
+@keyframes flyIn
+  0%
+    transform: translateX(10rem)
+    transform: translate3d(10rem,0,0)
+    opacity: 0
+  100%
+    opacity: 1
+    transform: translateX(0)
+    transform: translate3d(0,0,0)

@@ -1,0 +1,186 @@
+/*------------------------------------//
+//  Import fonts
+//------------------------------------*/
+
+@import "fonts/bebas"
+
+/*------------------------------------//
+//  Typography
+//------------------------------------*/
+
+body
+  font-size: $font-size
+  line-height: $line-height
+  font-weight: $font-weight
+  font-family: $font-family
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+  font-smoothing: antialiased
+  -moz-font-smoothing: antialiased
+  -ms-font-smoothing: antialiased
+  -o-font-smoothing: antialiased
+
+/*------------------------------------//
+//  Headings
+//------------------------------------*/
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+  margin-bottom: $spacer
+  margin-top: 0
+  font-family: $heading-family
+  font-weight: $heading-weight
+
+  /*------------------------------------//
+  //  TODO: write heading sizes to vars
+  //------------------------------------*/
+  
+h1,
+.h1
+  font-size: 4.8rem
+  line-height: 6rem
+
+h2,
+.h2
+  font-size: 3.6rem
+  line-height: 4.8rem
+
+h3,
+.h3
+  font-size: 2.8rem
+  line-height: 3.6rem
+
+h4,
+.h4
+  font-size: 2.2rem
+  line-height: 3.6rem
+
+h5,
+.h5
+  font-size: 1.6rem
+  line-height: 2.4rem
+
+h6,
+.h6
+  font-size: 1.4rem
+  line-height: 2.4rem
+
+
+.Heading--meta
+  color: $clr-text-faded
+
+// Paragraphs
+p
+  margin-bottom: $spacer
+  word-break: break-word
+  word-wrap: break-word
+
+  &:last-child
+    margin-bottom: 0
+
+
+.text--leader
+  font-size: 1.8rem
+  line-height: 2.4rem
+  font-weight: 200
+
+// Meta
+.text--meta
+  font-size: 1rem
+  line-height: 1.2rem
+  color: $clr-text-faded
+
+// Small
+.text--small,
+small
+  font-size: 85%
+
+.text--smaller
+  font-size: 1.2rem
+  line-height: 1.8rem
+
+.text--bigger
+  font-size: 1.8rem
+  line-height: 2.4rem
+
+
+
+.text--hidden
+  +text-hide
+  position: absolute
+  width: 0
+  height: 0
+  overflow: hidden
+
+/*------------------------------------//
+//  Colors
+//------------------------------------*/
+
+.text--main
+  color: $clr-main
+
+.text--danger
+  color: $clr-danger
+
+.text--warning
+  color: $clr-warning
+
+.text--success
+  color: $clr-success
+
+.text--info
+  color: $clr-info
+
+.text--alt
+  color: $clr-alt
+
+.text--faded
+  color: $clr-text-faded
+
+.text--text
+  color: $clr-text
+
+
+// Strong
+strong,
+.text--strong
+  font-weight: 600
+
+// Bold
+b,
+.text--bold
+  font-style: bold
+
+
+
+// Reset lists for global styling
+
+ul, ol
+  margin: 0
+  padding: 0
+  list-style: none
+
+// Add styling for text content:
+
+.content--text
+  //------------------------------------//
+  //  Has trailers
+  //------------------------------------//
+  ul, ol, dl
+    margin-bottom: $spacer
+
+  ul
+    list-style-type: disc
+    padding-left: $spacer/2
+
+    ul
+      list-style-type: circle
+      padding-left: $spacer/2
+
+  ol
+    list-style-type: decimal
+    padding-left: $spacer/2
+
+    ol
+      list-style-type: lower-latin
+      padding-left: $spacer/2

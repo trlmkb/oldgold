@@ -1,0 +1,176 @@
+.section--about
+  position: relative
+  min-height: 100vh
+
+
+  .section-inner
+    padding-top: 15rem
+
+    +breakpoint-down(sm)
+      padding-top: 5rem
+
+
+  .section-background--rectangle
+    left: 13%
+    top: 32%
+    max-width: 35.8rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: 100%
+      background: url(../images/rectangle.png) top left no-repeat
+      background-size: cover
+
+    +breakpoint-down(sm)
+      left: -17%
+
+
+  .section-background--triangle
+    left: 17%
+    top: 48%
+    max-width: 34.8rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (47 / 58) * 100%
+      background: url(../images/triangle.png) top left no-repeat
+      background-size: cover
+
+    +breakpoint-down(sm)
+      left: -8%
+
+
+  .section-background--whothe
+    right: 4%
+    top: 20%
+    max-width: 85.9rem
+    width: 100%
+    max-height: 100%
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (859 / 879) * 100%
+      background: url(../images/whothe-bg.png) top left no-repeat
+      background-size: cover
+
+    +breakpoint-down(sm)
+      right: -40%
+
+  .section-content
+    margin-bottom: 14rem
+
+
+  .greet
+    // flex: 1 1 50%
+    position: relative
+    font-size: 5rem
+    line-height: 1
+    font-weight: 900
+    color: #161616
+    padding-left: 4.6rem
+    padding-bottom: 3rem
+    margin-left: 8rem
+    margin-top: 8rem
+
+    +breakpoint-down(md)
+      margin-left: 4rem
+
+    +breakpoint-down(sm)
+      margin-left: 0
+      margin-top: 0rem
+      margin-bottom: 6rem
+      display: inline-block
+      vertical-align: top
+      padding: 0
+
+    &:before
+      content: ""
+      background: $clr-main
+      width: 2.8rem
+      // height: 32.21rem
+      bottom: 0
+      position: absolute
+      left: 0
+      top: 2.6rem
+      transition: all 300ms ease-out
+
+      +breakpoint-down(sm)
+        bottom: -2rem
+        left: -2rem
+        width: 50%
+
+    > div
+      z-index: 1
+      position: relative
+      display: inline-block
+      vertical-align: top
+
+
+  .aboutMe
+    color: #303030
+    text-align: center
+    font-weight: 300
+    font-size: 1.4rem
+    line-height: 2
+    max-width: 38rem
+    margin: auto
+    letter-spacing: 0rem
+
+    +breakpoint-down(sm)
+      font-size: 1.6rem
+      max-width: none
+      padding-left: 2rem
+      padding-right: 2rem
+      max-width: 42rem
+
+  .me
+    position: relative
+    max-width: 43.1rem
+    width: 100%
+    margin-left: auto
+    margin-right: auto
+
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (176 / 177) * 100%
+      background: url(../images/me-bg.png) center no-repeat
+      background-size: cover
+      transition-property: all
+      transition-duration: 2000ms
+      transition-timing-function: ease-out
+      transition-timing-function: $ease-out-quint
+
+  .me-image
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: (457 / 531 ) * 100%
+    width: 100%
+
+    &:before
+      display: block
+      content: ""
+      width: 100%
+      padding-top: (454 / 457) * 100%
+      background: url(../images/me-update.png) center no-repeat
+      background-size: cover
+      transition-property: all
+      transition-duration: 2000ms
+      transition-timing-function: ease-out
+      transition-timing-function: $ease-out-quint
+
+  .me.visible
+    &:before
+      transform: translate(7rem, 2rem)
+    .me-image:before
+      transform: translate(-7rem, -5rem)

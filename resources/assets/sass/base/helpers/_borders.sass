@@ -1,0 +1,96 @@
+/*------------------------------------//
+//  Border bottom thin
+//------------------------------------*/
+
+%thin-border-bottom
+  box-shadow: inset 0 -1px lighten($clr-border, 5%)
+
+  +retina
+    box-shadow: none
+    background-image: linear-gradient(0deg, $clr-border, $clr-border 50%, transparent 50%)
+    background-size: 100% 1px
+    background-repeat: no-repeat
+    background-position: bottom
+
+%thin-border-top
+  box-shadow: inset 0 1px lighten($clr-border, 5%)
+
+  +retina
+    box-shadow: none
+    background-image: linear-gradient(0deg, $clr-border, $clr-border 50%, transparent 50%)
+    background-size: 100% 1px
+    background-repeat: no-repeat
+    background-position: top
+
+%thin-border-left
+  box-shadow: inset 1px 0 lighten($clr-border, 5%)
+
+  +retina
+    box-shadow: none
+    background-image: linear-gradient(to bottom, $clr-border, $clr-border 100%)
+    background-size: 1px 100%
+    background-repeat: no-repeat
+    background-position: left
+
+%thin-border-right
+  box-shadow: inset -1px 0 lighten($clr-border, 5%)
+
+  +retina
+    box-shadow: none
+    background-image: linear-gradient(to bottom, $clr-border, $clr-border 100%)
+    background-size: 1px 100%
+    background-repeat: no-repeat
+    background-position: right
+
+
+//
+// Remove borders
+//
+
+.Border--0
+  border: 0 !important
+
+.Border--top--0
+  border-top: 0 !important
+
+.Border--right--0
+  border-right: 0 !important
+
+.Border--bottom--0
+  border-bottom: 0 !important
+
+.Border--left--0
+  border-left: 0 !important
+
+
+//
+// Border-radius
+//
+
+.Rounded
+  border-radius: $border-radius
+
+.Rounded--top
+  border-top-left-radius: $border-radius
+  border-top-right-radius: $border-radius
+
+.Rounded--right
+  border-top-right-radius: $border-radius
+  border-bottom-right-radius: $border-radius
+
+.Rounded--bottom
+  border-bottom-left-radius: $border-radius
+  border-bottom-right-radius: $border-radius
+
+.Rounded--left
+  border-top-left-radius: $border-radius
+  border-bottom-left-radius: $border-radius
+
+
+.Rounded--circle
+  border-radius: 50%
+
+
+.rounded-0
+  border-radius: 0
+

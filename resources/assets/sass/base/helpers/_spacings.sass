@@ -1,0 +1,62 @@
+// Margin and Padding
+
+@each $bp in map-keys($breakpoints)
+  +breakpoint(map-get($breakpoints,$bp))
+
+    $bp: breakpoint-infix($bp, $breakpoints)
+
+    @each $prop, $abbrev in (margin: m, padding: p)
+      @each $size, $lengths in $spacers
+
+        $length-x: map-get($lengths, x)
+        $length-y: map-get($lengths, y)
+
+        .#{$abbrev}#{$bp}--#{$size}
+          #{$prop} : $length-y $length-x !important
+
+        .#{$abbrev}t#{$bp}--#{$size}
+          #{$prop}-top : $length-y !important
+
+        .#{$abbrev}r#{$bp}--#{$size}
+          #{$prop}-right : $length-x !important
+
+        .#{$abbrev}b#{$bp}--#{$size}
+          #{$prop}-bottom : $length-y !important
+
+        .#{$abbrev}l#{$bp}--#{$size}
+          #{$prop}-left : $length-x !important
+
+        .#{$abbrev}x#{$bp}--#{$size}
+          #{$prop}-right : $length-x !important
+          #{$prop}-left  : $length-x !important
+
+        .#{$abbrev}y#{$bp}--#{$size}
+          #{$prop}-top    : $length-y !important
+          #{$prop}-bottom : $length-y !important
+
+
+    // Some special margin utils
+    .m#{$bp}--auto
+      margin : auto !important
+
+    .mt#{$bp}--auto
+      margin-top : auto !important
+
+    .mr#{$bp}--auto
+      margin-right : auto !important
+
+    .mb#{$bp}--auto
+      margin-bottom : auto !important
+
+    .ml#{$bp}--auto
+      margin-left : auto !important
+
+    .mx#{$bp}--auto
+      margin-right : auto !important
+      margin-left  : auto !important
+   
+    .my#{$bp}--auto
+      margin-top    : auto !important
+      margin-bottom : auto !important
+
+

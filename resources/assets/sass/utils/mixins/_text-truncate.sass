@@ -1,0 +1,12 @@
+//------------------------------------//
+//  Truncate text
+// @value : width
+//------------------------------------//
+
+=text-truncate($width:null)
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
+  @if ($width)
+    max-width: $width

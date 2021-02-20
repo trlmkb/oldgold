@@ -1,0 +1,61 @@
+//
+// Text
+//
+
+// Alignment
+
+.text--justify
+  text-align: justify !important
+
+.text--nowrap
+  white-space: nowrap !important
+
+.text--truncate
+  @include text-truncate
+
+
+// Responsive alignment
+
+@each $bp in map-keys($breakpoints)
+  +breakpoint-up($bp)
+
+    $bp: breakpoint-infix($bp, $breakpoints)
+
+    .text#{$bp}--left
+      text-align: left !important
+
+    .text#{$bp}--right
+      text-align: right !important
+
+    .text#{$bp}--center
+      text-align: center !important
+
+
+// Transformation
+
+.text--lowercase
+  text-transform: lowercase !important
+
+.text--uppercase
+  text-transform: uppercase !important
+
+.text--capitalize
+  text-transform: capitalize !important
+
+
+// Weight and italics
+
+.font--weightNormal
+  font-weight: $font-weight
+
+.font--weightBold
+  font-weight: $font-weight-bold
+
+.font--italic
+  font-style: italic
+
+
+// Misc
+
+.text--hide
+  +text-hide()
